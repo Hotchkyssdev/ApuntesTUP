@@ -1,0 +1,1 @@
+ls -p /home/gersom/Escritorio | grep -v /
