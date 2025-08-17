@@ -1,0 +1,10 @@
+4.- Dados los siguientes conjuntos: 
+
+U = { x/x ∈ N ∧  1≤ x <12};    
+
+A = { 2; 4; 6; 8; 10 } , B = { 1; 2; 3; 4; 5}   y   C = { 1; 2; 6; 5; 9} 
+
+Resolver por extensión y diagramas de Venn: 
+
+                                               -                          ----- 
+a) A – B             b) (A ∩ B) U C         c) A        d) B – C       e) B C ∩

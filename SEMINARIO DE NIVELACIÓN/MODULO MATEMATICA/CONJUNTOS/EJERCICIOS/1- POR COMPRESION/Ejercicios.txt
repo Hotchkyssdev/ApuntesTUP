@@ -1,0 +1,22 @@
+1.- Escribir los siguientes conjuntos por comprensión: 
+
+A= {verde, violeta, naranja} 
+
+Rta: A= {x/x es un color secundario} o A= {colores secundarios}
+
+B= {do, re, mi, fa, sol, la, si} 
+
+Rta: B= {x/x es una nota musical}
+
+C= {a, b, c, d, e, f, g, h}
+
+Rta: C= {x/x es una letra del abecedario}  
+
+D= {2; 4; 6; 8; 10; 12; 14; 16; 18; 20}
+
+Rta: D= {x/x son los números pares del 1 al 20} 
+
+E= {paralelogramo, cuadrado, rectángulo, trapecio, rombo, romboide}
+
+Rta: E= {x/x es una figura geométrica cuadrilátera}
+

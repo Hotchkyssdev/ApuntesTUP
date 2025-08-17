@@ -1,0 +1,21 @@
+2.- Escribir los siguientes conjuntos por extensión:
+ 
+A= {Planetas del sistema solar}
+
+Rta: A= {Mercurio, Venus, Tierra, Marte, Jupiter, Saturno, Urano, Neptuno}
+
+B= {Números impares del 1 al 50}
+
+Rta: B= {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49}
+ 
+C= {Frutas cuyo nombre comiencen con M} 
+
+Rta: C= {Manzana, Mango, Melón, Mandarina}
+
+D= {Puntos de intersección de dos paralelas} 
+
+Rta: D= {}
+
+E= {vehículos de dos ruedas} 
+
+Rta: E= {Motocicleta, Bicicleta, Monopatín}

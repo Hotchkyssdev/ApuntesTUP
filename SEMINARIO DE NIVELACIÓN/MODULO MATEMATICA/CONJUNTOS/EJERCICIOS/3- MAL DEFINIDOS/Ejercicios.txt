@@ -1,0 +1,17 @@
+3.- Decir cuáles de los siguientes conjuntos están mal definidos y por qué: 
+
+A= {Flores de color claro}
+
+Rta: Mal definido porque no se aclara que colores se consideran claros, para una persona un color puede ser claro mientra que para otra persona no.
+ 
+B= {x ϵ R y x es el número siguiente al 999} 
+
+Rta: Mal definido porque el numero siguiente a 999 es 1000 que es un numero entero y no real, los numeros reales son incluyen decimales e infinitos valores entre enteros.
+
+C= {Frutas ricas} 
+
+Rta: Mal definido porque depende de los gustos de cada persona, para algunas la Manzana Verde no es rica mientras que para otras si lo es.
+
+D = {x / x es una ciudad cercana a Barranqueras}  
+
+Rta: Mal definido porque, no está establecido cuantos km se consideran cerca, por ejemplo, para algunas personas, cerca serían 2 km, para otras, serían 5 km.
