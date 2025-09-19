@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Proyector
+comment1.params=marca
+comment1.target=void\ setMarca(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getMarca()
+comment3.params=tecnologia
+comment3.target=void\ setTecnologia(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getTecnologia()
+comment5.params=color
+comment5.target=void\ setColor(Rgb)
+comment6.params=
+comment6.target=Rgb\ getColor()
+comment7.params=
+comment7.target=Proyector()
+comment8.params=marca\ tecnologia\ color
+comment8.target=Proyector(java.lang.String,\ java.lang.String,\ Rgb)
+comment9.params=
+comment9.target=void\ apagar()
+numComments=10
