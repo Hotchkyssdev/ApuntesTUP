@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Celular
+comment1.params=
+comment1.target=java.lang.String\ getMarca()
+comment10.params=nombre
+comment10.target=void\ Llamada(java.lang.String)
+comment11.params=
+comment11.target=void\ informarCaracteristicas()
+comment2.params=
+comment2.target=java.lang.String\ getModelo()
+comment3.params=
+comment3.target=java.lang.String\ getColor()
+comment4.params=marca
+comment4.target=void\ setMarca(java.lang.String)
+comment5.params=modelo
+comment5.target=void\ setModelo(java.lang.String)
+comment6.params=color
+comment6.target=void\ setColor(java.lang.String)
+comment7.params=
+comment7.target=Celular()
+comment8.params=marca\ modelo\ color
+comment8.target=Celular(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment9.params=
+comment9.target=void\ cortarLlamada()
+numComments=12
