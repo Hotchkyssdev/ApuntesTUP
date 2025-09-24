@@ -1,8 +1,8 @@
-abstract class Producto {
+abstract class ProductoTienda {
     protected int id;
     protected double precio;
     protected int stock;
-
+    
     public int getId() {
         return id;
     }
@@ -19,7 +19,7 @@ abstract class Producto {
         this.stock = stock;
     }
     
-    public Producto(int id, double precio, int stock) {
+    public ProductoTienda(int id, double precio, int stock) {
         this.id = id;
         this.precio = precio;
         this.stock = stock;
@@ -30,13 +30,13 @@ abstract class Producto {
     }
 }
 
-class Accesorio extends Producto {
+class Accesorio extends ProductoTienda {
     public Accesorio(int id, double precio, int stock) {
         super(id, precio, stock);
     } 
 }
 
-class Indumentaria extends Producto {
+class Indumentaria extends ProductoTienda {
     protected String talle;
 
     public Indumentaria(int id, double precio, int stock, String talle) {
@@ -118,9 +118,9 @@ public class Programa30 {
     public static void main(String[] args) {
         Sucursal sucursal = new Sucursal("Sucursal centro", "Av. Alberdi 239");
 
-        Producto accesorio = new Accesorio(1, 500, 10);
-        Producto zapato = new Zapatos(2, 1500, 5, "43");
-        Producto ropa = new Ropa(3, 1000, 20, "L");
+        ProductoTienda accesorio = new Accesorio(1, 500, 10);
+        ProductoTienda zapato = new Zapatos(2, 1500, 5, "43");
+        ProductoTienda ropa = new Ropa(3, 1000, 20, "L");
 
         Vendedor vendedor = new Vendedor ("Gersom Tomas Hotchkyss", sucursal);
         Cliente cliente = new Cliente("Juan Perez Canal");
