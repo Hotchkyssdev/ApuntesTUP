@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Caramelo
+comment1.params=
+comment1.target=java.lang.String\ getGusto()
+comment10.params=
+comment10.target=void\ regalar()
+comment11.params=
+comment11.target=void\ recibir()
+comment12.params=
+comment12.target=void\ comprar()
+comment2.params=
+comment2.target=java.lang.String\ getMarca()
+comment3.params=gusto
+comment3.target=void\ setGusto(java.lang.String)
+comment4.params=marca
+comment4.target=void\ setMarca(java.lang.String)
+comment5.params=
+comment5.target=Caramelo()
+comment6.params=gusto\ marca
+comment6.target=Caramelo(java.lang.String,\ java.lang.String)
+comment7.params=
+comment7.target=void\ envolver()
+comment8.params=
+comment8.target=void\ comer()
+comment9.params=
+comment9.target=void\ tirarALaBasura()
+numComments=13
