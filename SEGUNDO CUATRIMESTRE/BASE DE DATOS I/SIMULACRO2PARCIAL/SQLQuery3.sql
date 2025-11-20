@@ -1,0 +1,5 @@
+CREATE TABLE ARMA (
+	CodArma INT PRIMARY KEY,
+	Nombre NVARCHAR(50),
+	Clase NVARCHAR(50)
+);

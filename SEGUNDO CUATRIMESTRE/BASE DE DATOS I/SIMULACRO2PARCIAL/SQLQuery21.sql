@@ -1,0 +1,2 @@
+SELECT COUNT(*) AS CantidadArmas
+FROM ARMA;

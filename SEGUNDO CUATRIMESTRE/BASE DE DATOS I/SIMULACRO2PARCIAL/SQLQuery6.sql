@@ -1,0 +1,4 @@
+CREATE TABLE CALABOZO (
+	codCalabozo INT PRIMARY KEY,
+	ubicacion NVARCHAR(100)
+);

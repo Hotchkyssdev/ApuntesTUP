@@ -1,0 +1,5 @@
+CREATE TABLE CASO (
+	codCaso INT PRIMARY KEY NOT NULL,
+	juzgado NVARCHAR(100),
+	principalCargo NVARCHAR(50)
+);

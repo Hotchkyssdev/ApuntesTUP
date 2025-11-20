@@ -1,0 +1,2 @@
+SELECT DNI, Nombre, Funcion
+FROM POLICIA;
