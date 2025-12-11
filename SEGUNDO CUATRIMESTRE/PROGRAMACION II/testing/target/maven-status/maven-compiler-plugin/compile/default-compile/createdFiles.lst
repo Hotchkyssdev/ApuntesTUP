@@ -1,0 +1,9 @@
+com\testing\model\Product.class
+com\testing\Calculadora.class
+com\testing\web\ProductController.class
+com\testing\service\UserService.class
+com\testing\order\OrderService.class
+com\testing\Main.class
+com\testing\service\ProductService.class
+com\testing\repo\UserRepository.class
+com\testing\model\User.class

@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+testing,com.testing.web,ProductController,0,10,0,0,0,4,0,2,0,2
+testing,com.testing.model,User,3,12,0,0,1,5,1,2,1,2
+testing,com.testing.model,Product,11,15,0,0,6,6,3,3,3,3
+testing,com.testing.order,OrderService,1,11,1,1,1,2,1,2,0,2
+testing,com.testing,Calculadora,0,11,0,0,0,3,0,3,0,3
+testing,com.testing,Main,5,3,0,0,2,1,1,1,1,1
+testing,com.testing.service,UserService,0,18,0,0,0,3,0,2,0,2
+testing,com.testing.service,ProductService,11,0,0,0,2,0,2,0,2,0

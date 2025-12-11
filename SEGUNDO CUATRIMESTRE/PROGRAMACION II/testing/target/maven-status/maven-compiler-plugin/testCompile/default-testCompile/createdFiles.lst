@@ -1,0 +1,6 @@
+com\testing\CalculadoraTest.class
+com\testing\web\ProductControllerTest.class
+com\testing\integration\ProductRepositoryIT.class
+com\testing\CalculadoraParamTest.class
+com\testing\OrderServiceTest.class
+com\testing\UserServiceTest.class
