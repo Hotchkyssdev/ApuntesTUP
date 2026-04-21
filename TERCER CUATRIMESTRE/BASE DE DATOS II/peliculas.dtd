@@ -1,0 +1,13 @@
+<!ELEMENT cartelera (pelicula+)>
+
+<!ELEMENT pelicula (titulo, director, genero+, anio?, duracion)>
+<!ATTLIST pelicula
+	id	ID	#REQUIRED
+	clasificacion	(G|PG|R)	"PG"
+>
+
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>

@@ -1,0 +1,152 @@
+<!-- =============================================================
+     SISTEMA DE FACTURACIÓN - DTD completo
+     Archivo: facturacion.dtd
+     Demuestra: TODOS los cuantificadores y tipos de atributo
+     ============================================================= -->
+
+<!-- ── Entidades (constantes reutilizables) ────────────────── -->
+
+<!-- Permiten reutilizar valores en todo el xml -->
+<!ENTITY iva        "0.21">
+<!ENTITY monedaDef  "ARS">
+<!ENTITY empresa    "Distribuidora del Norte S.A.">
+
+<!-- ── Elemento raíz ──────────────────────────────────────── -->
+<!-- Esto define como tiene que ser la etiqueta principal del documento xml-->
+
+<!ELEMENT facturas (factura+)>
+<!-- Lectura: el elemento 'facturas' contiene UNO O MÁS elementos 'factura' (+) -->
+
+<!-- ── Factura: estructura principal ──────────────────────── -->
+<!-- Definicion de la estructura principal de cada factura, el order de los elementos es obligatorio respetar-->
+
+<!ELEMENT factura (
+    encabezado,
+    cliente,
+    vendedor?,
+    items,
+    descuento*,
+    totales,
+    observaciones?
+)>
+<!-- Lectura:
+  encabezado   → exactamente uno (obligatorio)
+  cliente      → exactamente uno (obligatorio)
+  vendedor     → cero o uno (?) = opcional
+  items        → exactamente uno (contiene los renglones)
+  descuento    → cero o más (*) = puede no haber o haber varios
+  totales      → exactamente uno (obligatorio)
+  observaciones→ cero o uno (?) = opcional
+  Todos en SECUENCIA (,) = deben aparecer en ese orden
+-->
+
+<!-- ── Atributos de factura ───────────────────────────────── -->
+
+<!-- ATRIBUTOS DE FACTURA CON SUS TIPOS DE DATOS Y RESTRICCIONES -->
+<!ATTLIST factura
+    id          ID                          #REQUIRED
+    tipo        (A|B|C|M|X)                 "B"
+    estado      (borrador|emitida|anulada)  "borrador"
+    moneda      CDATA                       #IMPLIED
+    version     NMTOKEN                     #FIXED "3.0"
+>
+<!-- Lectura de atributos:
+  id     → ID único, obligatorio (#REQUIRED)
+  tipo   → enumeración (A|B|C|M|X), valor por defecto 'B'
+  estado → enumeración, valor por defecto 'borrador'
+  moneda → texto libre (CDATA), opcional (#IMPLIED)
+  version→ NMTOKEN fijo siempre '3.0' (#FIXED), no puede cambiarse
+-->
+
+<!-- ── Encabezado ─────────────────────────────────────────── -->
+<!-- Contiene datos basicos de la factura -->
+
+<!ELEMENT encabezado (fecha, numero, puntoVenta)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT numero (#PCDATA)>
+<!ELEMENT puntoVenta (#PCDATA)>
+
+<!-- ── Cliente ────────────────────────────────────────────── -->
+<!-- Datos del cliente asociados a la factura -->
+
+<!ELEMENT cliente (razonSocial, cuit, domicilio, contacto*)>
+<!-- contacto* = el cliente puede tener 0 o más contactos -->
+<!ELEMENT razonSocial (#PCDATA)>
+<!ELEMENT cuit (#PCDATA)>
+
+<!ELEMENT domicilio (calle, numero, ciudad, provincia?, codigoPostal?)>
+<!ELEMENT calle (#PCDATA)>
+<!ELEMENT ciudad (#PCDATA)>
+<!ELEMENT provincia (#PCDATA)>
+<!ELEMENT codigoPostal (#PCDATA)>
+<!ELEMENT contacto (#PCDATA)>
+
+<!ATTLIST cliente
+    id              ID          #REQUIRED
+    condicionIVA    (RI|M|CF|E) #REQUIRED
+    extranjero      (si|no)     "no"
+>
+<!ATTLIST contacto
+    tipo    (email|telefono|whatsapp)   #REQUIRED
+>
+
+<!-- ── Vendedor (opcional) ─────────────────────────────────── -->
+<!ELEMENT vendedor (nombreVendedor, legajo?)>
+<!-- legajo? = el número de legajo es opcional -->
+<!ELEMENT nombreVendedor (#PCDATA)>
+<!ELEMENT legajo (#PCDATA)>
+
+<!ATTLIST vendedor
+    id          ID          #REQUIRED
+    clienteRef  IDREF       #IMPLIED
+>
+<!-- clienteRef IDREF = referencia al 'id' de un elemento cliente -->
+<!-- Esto garantiza que el vendedor esté vinculado a un cliente existente -->
+
+<!-- ── Items (renglones de la factura) ─────────────────────── -->
+<!ELEMENT items (item+)>
+<!-- item+ = debe haber AL MENOS UN item en la factura -->
+
+<!ELEMENT item (descripcion, cantidad, precioUnitario, alicuotaIVA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT precioUnitario (#PCDATA)>
+<!ELEMENT alicuotaIVA (#PCDATA)>
+
+<!ATTLIST item
+    codigo      NMTOKEN                     #REQUIRED
+    unidad      (un|kg|lt|caja|hs|m2|m3)   "un"
+    bonificado  (si|no)                     "no"
+    itemRef     IDREF                       #IMPLIED
+>
+<!-- codigo NMTOKEN = identificador sin espacios (ej: PROD-001)
+     unidad = enumeración de unidades de medida
+     itemRef IDREF = puede referenciar a otro item (ej: item padre) -->
+
+<!-- ── Descuento (cero o más por factura) ──────────────────── -->
+<!ELEMENT descuento (motivo, porcentaje)>
+<!ELEMENT motivo (#PCDATA)>
+<!ELEMENT porcentaje (#PCDATA)>
+
+<!ATTLIST descuento
+    tipo    (comercial|financiero|especial)     #REQUIRED
+    global  (si|no)                             "si"
+>
+
+<!-- ── Totales ─────────────────────────────────────────────── -->
+<!-- Los valores finales que tiene la factura -->
+
+<!ELEMENT totales (subtotal, totalIVA, totalFinal)>
+<!ELEMENT subtotal (#PCDATA)>
+<!ELEMENT totalIVA (#PCDATA)>
+<!ELEMENT totalFinal (#PCDATA)>
+
+<!-- la moneda es obligatoria -->
+<!ATTLIST totales
+    moneda  CDATA   #REQUIRED
+>
+
+<!-- ── Observaciones (opcional) ───────────────────────────── -->
+<!-- Esto significa que las observaciones en una factura es un texto opcional -->
+
+<!ELEMENT observaciones (#PCDATA)>

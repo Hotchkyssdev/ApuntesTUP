@@ -1,0 +1,17 @@
+{
+  "agenda": {
+     "contacto": [
+	{
+	  "tipo": "personal",
+	  "nombre": "Laura",
+	  "telefono": "3624-112233",
+	  "email": "laura@gmail.com"
+	},
+	{
+	  "tipo": "trabajo",
+	  "nombre": "Marcos",
+	  "telefono": "3624-445566",
+	}
+    ]
+  }
+}

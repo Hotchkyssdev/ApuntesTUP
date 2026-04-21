@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding"UTF-8"?>
+<!DOCTYPE pedido [
+
+<!ELEMENT pedido (fecha, cliente, items)>
+<!ATTLIST pedido
+	id 	ID
+	estado (pendiente|enviado|entregado)
+>
+
+<!ELEMENT fecha (#PCDATA)>
+
+<!ELEMENT cliente (nombre, email?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!ELEMENT items (item+)
+<!ELEMENT item (producto, cantidad, precioUnit)>
+
+<!ELEMENT producto (#PCDATA)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT precioUnit (#PCDATA)>
+
+]>
+
+<pedido id="ORD-001" estado="pendiente">
+
+    <fecha>2026-04-21</fecha>
+
+    <cliente>
+	<nombre>Ana Gomez</nombre>
+	<email>ana@gmail.com</email>    
+    </cliente>
+
+    <items>
+	<item>
+	   <producto>Teclado</producto>
+	   <cantidad>2</cantidad>
+	   <precioUnit>45.00</precioUnit>
+	</item>
+	<item>
+	   <producto>Monitor</producto>
+	   <cantidad>1</cantidad>
+	   <precioUnit>320.00</precioUnit>
+	</item>
+    </items>
+
+</pedido>

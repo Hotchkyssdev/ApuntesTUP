@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facturas SYSTEM "facturacion.dtd">
+<facturas>
+    <factura id="FAC001" tipo="B" estado="emitida">
+
+        <encabezado>
+            <fecha>2026-04-21</fecha>
+            <numero>00001234</numero>
+            <puntoVenta>0001</puntoVenta>
+        </encabezado>
+
+        <cliente id="CLI001" condicionIVA="CF" extranjero="no">
+            <razonSocial>Juan Pérez</razonSocial>
+            <cuit>20-12345678-9</cuit>
+            <domicilio>
+                <calle>Av. Sarmiento</calle>
+                <numero>1500</numero>
+                <ciudad>Resistencia</ciudad>
+                <provincia>Chaco</provincia>
+                <!-- codigoPostal es opcional: lo omitimos -->
+            </domicilio>
+            <contacto tipo="email">juan@mail.com</contacto>
+            <contacto tipo="telefono">3624-112233</contacto>
+            <!-- contacto* = puede haber 0, 1 o más -->
+        </cliente>
+
+        <!-- vendedor es opcional (?): lo omitimos en esta factura -->
+
+        <items>
+            <item codigo="PROD-001" unidad="un" bonificado="no">
+                <descripcion>Teclado mecanico</descripcion>
+                <cantidad>2</cantidad>
+                <precioUnitario>45.00</precioUnitario>
+                <alicuotaIVA>21</alicuotaIVA>
+            </item>
+            <item codigo="PROD-002" unidad="un">
+                <descripcion>Monitor LG 24</descripcion>
+                <cantidad>1</cantidad>
+                <precioUnitario>320.00</precioUnitario>
+                <alicuotaIVA>21</alicuotaIVA>
+            </item>
+        </items>
+
+        <!-- descuento* = cero o más: aplicamos uno -->
+        <descuento tipo="comercial" global="si">
+            <motivo>Cliente frecuente</motivo>
+            <porcentaje>5</porcentaje>
+        </descuento>
+
+        <totales moneda="ARS">
+            <subtotal>410.00</subtotal>
+            <totalIVA>86.10</totalIVA>
+            <totalFinal>496.10</totalFinal>
+        </totales>
+
+        <observaciones>Entrega en 48hs hábiles.</observaciones>
+
+    </factura>
+</facturas>

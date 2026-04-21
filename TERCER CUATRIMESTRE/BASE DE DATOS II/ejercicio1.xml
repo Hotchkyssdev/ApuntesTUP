@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tienda [
+
+<!ELEMENT tienda (producto+)>
+
+<!ELEMENT producto (nombre, precio, categoria)>
+<!ATTLIST producto
+    id		ID	#REQUIRED
+    disponible  (si|no) "si"
+>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT precio (#PCDATA)>
+<!ATT LIST precio
+    moneda CDATA #REQUIRED
+>
+
+<!ELEMENT categoria (#PCDATA)>
+
+]>
+<tienda>
+    <producto id="p1" disponible="si">
+        <nombre>Laptop</nombre>
+        <precio moneda="USD">999.99</precio>
+        <categoria>Informatica</categoria>
+    </producto>
+    <producto id="p2" disponible="no">
+        <nombre>Mouse</nombre>
+        <precio moneda="USD">25.00</precio>
+        <categoria>Periferico</categoria>
+    </producto>
+</tienda>

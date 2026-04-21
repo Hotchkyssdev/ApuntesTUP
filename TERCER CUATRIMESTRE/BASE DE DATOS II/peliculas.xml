@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding"UTF-8"?>
+<!DOCTYPE cartelera SYSTEM "peliculas.dtd">
+
+<cartelera>
+	<pelicula id="p1" clasificacion"PG">
+		<titulo>Inception</titulo>
+		<director>Christopher Nolan</director>
+		<genero>Ciencia Ficcion</genero>
+		<genero>Accion</genero>
+		<anio>2010</anio>
+		<duracion>148</duracion>
+	</pelicula>
+
+	<pelicula id="p2>
+		<titulo>Toy Story</titulo>
+		<director>John Lasseter</director>
+		<genero>Animacion</genero>
+		<genero>Comedia</genero>
+		<anio>1995</anio>
+		<duracion>81</duracion>
+	</pelicula>
+
+	<pelicula id="p3" clasificacion"R">
+		<titulo>Joker</titulo>
+		<director>Todd Phillips</director>
+		<genero>Drama</genero>
+		<duracion>122</duracion>
+	</pelicula>
+</cartelera>
