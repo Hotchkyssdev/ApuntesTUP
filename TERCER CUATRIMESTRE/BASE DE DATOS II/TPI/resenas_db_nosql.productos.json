@@ -1,0 +1,273 @@
+[{
+  "_id": 1,
+  "titulo": "Inception",
+  "tipo": "pelicula",
+  "autor_director": "Christopher Nolan",
+  "anio_lanzamiento": 2010,
+  "genero": "Ciencia Ficción",
+  "categorias": [
+    {
+      "id_categoria": 1,
+      "nombre": "Ciencia Ficción"
+    }
+  ],
+  "atributos_extra": {
+    "premios": [
+      "Oscar"
+    ],
+    "duracion_min": 148,
+    "clasificacion": "PG-13",
+    "idioma_original": "en"
+  },
+  "resenas": [
+    {
+      "id_resena": 1,
+      "puntuacion": 9,
+      "comentario": "Una obra maestra del cine moderno.",
+      "fecha_resena": "2024-01-15",
+      "usuario": {
+        "id_usuario": 1,
+        "nombre": "Ana García",
+        "email": "ana@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "Carlos López",
+          "tipo": "like"
+        },
+        {
+          "usuario": "María Fernández",
+          "tipo": "like"
+        },
+        {
+          "usuario": "Juan Pérez",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": 2,
+  "titulo": "El Señor de los Anillos",
+  "tipo": "libro",
+  "autor_director": "J.R.R. Tolkien",
+  "anio_lanzamiento": 1954,
+  "genero": "Fantasia",
+  "categorias": [
+    {
+      "id_categoria": 2,
+      "nombre": "Fantasia"
+    }
+  ],
+  "atributos_extra": {
+    "paginas": 1200,
+    "idioma_original": "Ingles"
+  },
+  "resenas": [
+    {
+      "id_resena": 2,
+      "puntuacion": 10,
+      "comentario": "El mejor libro de fantasia",
+      "usuario": {
+        "id_usuario": 2,
+        "nombre": "Carlos Lopez",
+        "email": "carlos@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "Ana",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": 3,
+  "titulo": "1984",
+  "tipo": "libro",
+  "autor_director": "George Orwell",
+  "anio_lanzamiento": 1949,
+  "genero": "Ciencia Ficción",
+  "categorias": [
+    {
+      "id_categoria": 1,
+      "nombre": "Ciencia Ficción"
+    },
+    {
+      "id_categoria": 6,
+      "nombre": "Clásicos"
+    }
+  ],
+  "atributos_extra": {
+    "isbn": "978-0-452-28423-4",
+    "edicion": "primera",
+    "paginas": 328,
+    "editorial": "Secker & Warburg"
+  },
+  "resenas": [
+    {
+      "id_resena": 3,
+      "puntuacion": 10,
+      "comentario": "Una distopía brillante y extremadamente vigente.",
+      "fecha_resena": "2024-02-01",
+      "usuario": {
+        "id_usuario": 3,
+        "nombre": "María Fernández",
+        "email": "maria@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "Diego Martínez",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": 4,
+  "titulo": "Cien años de soledad",
+  "tipo": "libro",
+  "autor_director": "Gabriel García Márquez",
+  "anio_lanzamiento": 1967,
+  "genero": "Drama",
+  "categorias": [
+    {
+      "id_categoria": 2,
+      "nombre": "Drama"
+    },
+    {
+      "id_categoria": 6,
+      "nombre": "Clásicos"
+    }
+  ],
+  "atributos_extra": {
+    "paginas": 417,
+    "editorial": "Sudamericana"
+  },
+  "resenas": [
+    {
+      "id_resena": 5,
+      "puntuacion": 10,
+      "comentario": "La novela más importante de América Latina.",
+      "fecha_resena": "2024-02-18",
+      "usuario": {
+        "id_usuario": 5,
+        "nombre": "Laura Rodríguez",
+        "email": "laura@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "Ana García",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": 5,
+  "titulo": "Get Out",
+  "tipo": "pelicula",
+  "autor_director": "Jordan Peele",
+  "anio_lanzamiento": 2017,
+  "genero": "Terror",
+  "categorias": [
+    {
+      "id_categoria": 3,
+      "nombre": "Terror"
+    },
+    {
+      "id_categoria": 5,
+      "nombre": "Thriller"
+    }
+  ],
+  "resenas": [
+    {
+      "id_resena": 2,
+      "puntuacion": 10,
+      "comentario": "Una crítica social brillante envuelta en una película de terror.",
+      "fecha_resena": "2024-01-20",
+      "usuario": {
+        "id_usuario": 2,
+        "nombre": "Carlos López",
+        "email": "carlos@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "Ana García",
+          "tipo": "like"
+        },
+        {
+          "usuario": "Laura Rodríguez",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": 6,
+  "titulo": "Harry Potter y la piedra filosofal",
+  "tipo": "libro",
+  "autor_director": "J.K. Rowling",
+  "anio_lanzamiento": 1997,
+  "genero": "Fantasía",
+  "categorias": [
+    {
+      "id_categoria": 4,
+      "nombre": "Fantasía"
+    }
+  ],
+  "atributos_extra": null,
+  "resenas": [
+    {
+      "id_resena": 7,
+      "puntuacion": 8,
+      "comentario": "Un libro que marcó mi infancia. La magia de Rowling es inigualable para todas las edades.",
+      "fecha_resena": "2024-03-10",
+      "usuario": {
+        "id_usuario": 1,
+        "nombre": "Ana García",
+        "email": "ana@mail.com"
+      },
+      "valoraciones": []
+    }
+  ]
+},
+{
+  "_id": 7,
+  "titulo": "Parasite",
+  "tipo": "pelicula",
+  "autor_director": "Bong Joon-ho",
+  "anio_lanzamiento": 2019,
+  "genero": "Thriller",
+  "categorias": [
+    {
+      "id_categoria": 5,
+      "nombre": "Thriller"
+    }
+  ],
+  "atributos_extra": null,
+  "resenas": [
+    {
+      "id_resena": 5,
+      "puntuacion": 9,
+      "comentario": "Parasite es una masterclass de dirección. La tensión aumenta sin respiro.",
+      "fecha_resena": "2024-02-18",
+      "usuario": {
+        "id_usuario": 5,
+        "nombre": "Laura Rodríguez",
+        "email": "laura@mail.com"
+      },
+      "valoraciones": [
+        {
+          "usuario": "María Fernández",
+          "tipo": "like"
+        }
+      ]
+    }
+  ]
+}]
