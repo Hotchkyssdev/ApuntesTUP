@@ -1,0 +1,274 @@
+# Ejercicio 8 — Diseño NoSQL: elección justificada de motor
+
+## Módulo A — Rastreo en tiempo real de paquetes
+
+### 1) Tipo de BD NoSQL y motor recomendado
+
+* **Tipo:** Base de datos de series temporales / Wide Column Store
+* **Motor recomendado:** Apache Cassandra
+
+### Justificación técnica
+
+El sistema recibe:
+
+* 10.000 paquetes
+* 1 posición GPS cada 10 segundos
+* almacenamiento histórico de 90 días
+
+Esto implica:
+
+* enorme volumen de escritura continua,
+* alta disponibilidad,
+* escalabilidad horizontal,
+* tolerancia a fallos.
+
+Cassandra está optimizada para:
+
+* escrituras masivas,
+* replicación distribuida,
+* consultas rápidas por clave de partición (tracking).
+
+---
+
+### 2) Justificación CAP (AP o CP)
+
+#### Elección: **AP (Availability + Partition Tolerance)**
+
+Según el **Teorema CAP**, en sistemas distribuidos ante una partición de red se debe elegir entre:
+
+* Consistencia fuerte (C)
+* Disponibilidad (A)
+
+En logística en tiempo real:
+
+* es preferible seguir recibiendo posiciones GPS aunque haya una pequeña demora en sincronización,
+* perder disponibilidad sería más grave que una inconsistencia temporal.
+
+Por eso Cassandra sigue el modelo:
+
+* **AP**
+* consistencia eventual (**BASE**)
+* no ACID estricto.
+
+Se prioriza:
+
+* disponibilidad continua,
+* tolerancia a particiones,
+* escalabilidad.
+
+---
+
+### 3) Ejemplo de estructura de datos
+
+```json
+{
+  "tracking_id": "PKG-90021",
+  "timestamp": "2026-05-19T14:20:00Z",
+  "gps": {
+    "lat": -31.7319,
+    "lon": -60.5238
+  },
+  "estado": "EN_TRANSITO"
+}
+```
+
+Modelo de clave típico en Cassandra:
+
+```sql
+PRIMARY KEY ((tracking_id), timestamp)
+```
+
+---
+
+# Módulo B — Perfil de remitentes
+
+### 1) Tipo de BD NoSQL y motor recomendado
+
+* **Tipo:** Base documental
+* **Motor recomendado:** MongoDB
+
+### Justificación técnica
+
+Los perfiles poseen:
+
+* datos fijos,
+* atributos variables,
+* documentación JSON,
+* arrays de incidencias.
+
+MongoDB encaja perfectamente porque:
+
+* almacena documentos JSON/BSON,
+* permite esquemas flexibles,
+* evita migraciones constantes,
+* soporta estructuras anidadas y arrays.
+
+---
+
+### 2) Justificación CAP (AP o CP)
+
+#### Elección: **CP (Consistency + Partition Tolerance)**
+
+Según CAP:
+
+* los datos del remitente deben mantenerse consistentes,
+* no conviene que aparezcan perfiles diferentes según el nodo consultado.
+
+Ejemplos críticos:
+
+* documentación legal,
+* incidencias,
+* preferencias del cliente.
+
+Por ello se prioriza:
+
+* consistencia de lectura/escritura,
+* integridad de datos.
+
+MongoDB puede configurarse con:
+
+* replicas,
+* write concern,
+* lectura consistente.
+
+Esto lo acerca a un enfoque:
+
+* **CP**
+* con propiedades parcialmente ACID por documento.
+
+---
+
+### 3) Ejemplo de estructura de datos
+
+```json
+{
+  "_id": "REM-3321",
+  "nombre": "Carlos Pérez",
+  "email": "carlos@mail.com",
+
+  "preferencias": {
+    "idioma": "es",
+    "notificaciones": true
+  },
+
+  "documentacion": {
+    "dni": "30222111",
+    "licencia": {
+      "numero": "LIC-99",
+      "vence": "2028-10-01"
+    }
+  },
+
+  "incidencias": [
+    {
+      "fecha": "2026-03-01",
+      "tipo": "Entrega rechazada"
+    },
+    {
+      "fecha": "2026-04-10",
+      "tipo": "Dirección incorrecta"
+    }
+  ]
+}
+```
+
+---
+
+# Módulo C — Red de distribuidores y subcontratistas
+
+### 1) Tipo de BD NoSQL y motor recomendado
+
+* **Tipo:** Base de datos orientada a grafos
+* **Motor recomendado:** Neo4j
+
+### Justificación técnica
+
+El problema principal es:
+
+* encontrar la cadena más corta de intermediarios.
+
+Eso es exactamente un problema de grafos:
+
+* nodos = distribuidores,
+* relaciones = conexiones/subcontratos,
+* consultas de caminos mínimos.
+
+Neo4j está optimizada para:
+
+* traversal,
+* shortest path,
+* relaciones complejas.
+
+---
+
+### 2) Justificación CAP (AP o CP)
+
+#### Elección: **CP (Consistency + Partition Tolerance)**
+
+Según CAP:
+
+* las relaciones deben ser correctas y coherentes,
+* una ruta inconsistente podría generar errores logísticos.
+
+Por ejemplo:
+
+* asignar un intermediario inexistente,
+* rutas duplicadas,
+* conexiones inválidas.
+
+Neo4j prioriza:
+
+* consistencia fuerte,
+* transacciones ACID,
+* integridad de relaciones.
+
+Por ello encaja mejor como:
+
+* **CP**
+* sacrificando algo de disponibilidad ante particiones.
+
+---
+
+### 3) Ejemplo de estructura de datos
+
+```json
+{
+  "Distribuidor": {
+    "id": "D-100",
+    "zona": "Entre Ríos"
+  }
+}
+```
+
+Relaciones tipo grafo:
+
+```text
+(D-100)-[:SUBCONTRATA]->(D-220)
+(D-220)-[:SUBCONTRATA]->(D-310)
+```
+
+Consulta típica en Neo4j (Cypher):
+
+```cypher
+MATCH p = shortestPath(
+  (a:Distribuidor)-[:SUBCONTRATA*]->(b:Distribuidor)
+)
+WHERE a.zona = "Entre Ríos"
+RETURN p
+```
+
+---
+
+# Conclusión general
+
+| Módulo | Tipo NoSQL                      | Motor     | CAP |
+| ------ | ------------------------------- | --------- | --- |
+| A      | Wide Column / Series temporales | Cassandra | AP  |
+| B      | Documental                      | MongoDB   | CP  |
+| C      | Grafos                          | Neo4j     | CP  |
+
+El diseño es coherente porque:
+
+* cada módulo utiliza el modelo NoSQL más adecuado al tipo de consulta,
+* las decisiones CAP responden a las necesidades reales del negocio,
+* se combinan correctamente modelos BASE y ACID según criticidad de los datos.
