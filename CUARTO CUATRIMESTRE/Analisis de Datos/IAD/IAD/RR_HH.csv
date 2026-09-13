@@ -1,0 +1,16 @@
+NOMBRE,DNI,AREA,PUESTO,REMUNERACION,COMIDA_FAVORITA
+Ana Gómez,35.123.456,Ventas,Vendedor Sr.,450000.0,Pizza
+Carlos Diaz,38.789.123,Tecnología,Desarrollador Jr.,380000.0,Milanesa
+Carlos Diaz,38.789.123,Tecnología,Desarrollador Jr.,380000.0,Milanesa
+Laura Fernandez,40.456.789,Marketing,NULL,320000.0,Tarta
+Pedro Martinez,33.987.654,,Analista de Datos,510000.0,Asado
+Sofia Rodriguez,41.111.222,Ventas,Vendedor Jr.,,Sushi
+Martin Lopez,29.555.888,Gerencia,Gerente de área,9500000.0,Empanadas
+Valentina Torres,42.333.444,RRHH,Analista de RRHH,390000.0,Pasta
+Javier Moreno,37.666.777,Tecnología,Desarrollador Sr.,680000.0,Pizza
+Valentina Torres,42.333.444,RRHH,Analista de RRHH,390000.0,Pasta
+Lucia Gimenez,43.222.111,Administración,Asistente,25000.0,Ensalada
+Mateo Acosta,39.888.999,Marketing,,330000.0,Tacos
+Daniel Sosa,36.444.555,,Soporte Técnico,360000.0,NULL
+Camila Ruiz,40.123.987,Administración,Administrativo,310000.0,Sopa
+,35.123.456,Ventas,Vendedor Sr.,,Pizza
